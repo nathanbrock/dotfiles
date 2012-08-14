@@ -27,4 +27,4 @@ PATH="/Applications/Postgres.app/Contents/McOS/bin:$PATH"
 # GRAILS
 export GRAILS_HOME=/usr/share/java/grails
 export PATH=$GRAILS_HOME/bin:$PATH
-export JAVA_HOME=/Library/Java/Home
+export JAVA_HOME=$(/usr/libexec/java_home)
