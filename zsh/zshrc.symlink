@@ -20,3 +20,11 @@ compinit
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
+
+# Postgres App bin
+PATH="/Applications/Postgres.app/Contents/McOS/bin:$PATH"
+
+# GRAILS
+export GRAILS_HOME=/usr/share/java/grails
+export PATH=$GRAILS_HOME/bin:$PATH
+export JAVA_HOME=/Library/Java/Home
