@@ -1,8 +1,17 @@
-" Color Scheme
-colorscheme Tomorrow-Night
+" Code
+syntax on
+filetype ident on
 
-" Enable syntax highlighting
-:syntax enable
+if has('gui_running')
+	set background=light
+else
+	set background=dark
+endif
+
+" Colours!
+set t_Co=16
+let g:solarized_termcolors=256
+colorscheme solarized
 
 " Always show line numbers, but only in current window.
 set number
