@@ -1,6 +1,11 @@
 " Code
 syntax on
-filetype ident on
+set cindent
+set smartindent
+set autoindent
+set expandtab
+set shiftwidth=2
+set cinkeys=0{,0},:,0#,!,!^F
 
 if has('gui_running')
 	set background=light
@@ -19,5 +24,9 @@ set number
 :au WinLeave * :setlocal nonumber
 
 " Automatically resize vertical splits.
-:au WinEnter * :set winfixheight
-:au WinEnter * :wincmd =
+":au WinEnter * :set winfixheight
+":au WinEnter * :wincmd =
+
+" Ctags
+let Tlist_WinWidth = 50
+map <F5> :TlistToggle<cr><C-W>w
