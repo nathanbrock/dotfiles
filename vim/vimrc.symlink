@@ -1,32 +1,3 @@
-" Code
+execute pathogen#infect()
 syntax on
-set cindent
-set smartindent
-set autoindent
-set expandtab
-set shiftwidth=2
-set cinkeys=0{,0},:,0#,!,!^F
-
-if has('gui_running')
-	set background=light
-else
-	set background=dark
-endif
-
-" Colours!
-set t_Co=16
-let g:solarized_termcolors=256
-colorscheme solarized
-
-" Always show line numbers, but only in current window.
-set number
-:au WinEnter * :setlocal number
-:au WinLeave * :setlocal nonumber
-
-" Automatically resize vertical splits.
-":au WinEnter * :set winfixheight
-":au WinEnter * :wincmd =
-
-" Ctags
-let Tlist_WinWidth = 50
-map <F5> :TlistToggle<cr><C-W>w
+filetype plugin indent on
