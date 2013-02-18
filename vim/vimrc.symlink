@@ -1,3 +1,27 @@
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+
+" VIM Theme - Solarized
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+
+" Always show line numbers, but only in current window.
+" set number
+:au WinEnter * :setlocal number
+:au WinLeave * :setlocal nonumber
+
+" Automatically resize vertical splits.
+:au WinEnter * :set winfixheight
+:au WinEnter * :wincmd =""
+
+" Load NERDTree onload
+autocmd vimenter * NERDTree
+" Close when noythin remains in the buffer but the tree!
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Tagbar window
+nmap <F8> :TagbarToggle<CR>
+
+
