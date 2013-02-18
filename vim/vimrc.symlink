@@ -21,7 +21,5 @@ autocmd vimenter * NERDTree
 " Close when noythin remains in the buffer but the tree!
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" Tagbar window
-nmap <F8> :TagbarToggle<CR>
-
-
+" Load Tagbar onload
+autocmd vimenter * TagbarToggle
