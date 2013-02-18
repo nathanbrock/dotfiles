@@ -22,3 +22,6 @@
 [submodule "vim/vim.symlink/bundle/simple-pairs"]
 	path = vim/vim.symlink/bundle/simple-pairs
 	url = git://github.com/vim-scripts/simple-pairs.git
+[submodule "vim/vim.symlink/bundle/vim-javascript"]
+	path = vim/vim.symlink/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
