@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# Removes all .DS_Store files from the folder you're in and all folders within!
+
+find . -name '*.DS_Store' -type f -delete -print
