@@ -7,6 +7,9 @@ export PROJECTS=~/Development
 # Clang (CC) for gcc-4.2, iOS building
 export CC=/usr/bin/clang
 
+# Slogger
+export slogger=~/Libraries/tools/Slogger
+
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
 
@@ -23,3 +26,5 @@ compinit
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
+
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
