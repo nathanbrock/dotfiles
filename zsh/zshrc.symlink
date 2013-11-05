@@ -7,6 +7,9 @@ export PROJECTS=~/Development
 # Clang (CC) for gcc-4.2, iOS building
 export CC=/usr/bin/clang
 
+# Drush
+export drush=$ZSH/bin/drush
+
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
 
