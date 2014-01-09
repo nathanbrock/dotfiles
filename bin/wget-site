@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SITE="$(echo -n "${1}" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)"
+
+if [ -z $2 ]; then
+	DIR=~/Desktop/${SITE}
+else
+	DIR=$2
+fi
+
+echo "Downloading $1..."
+echo "Saving to ${DIR}"
+$(wget --mirror -p --convert-links -P ${DIR} $1)

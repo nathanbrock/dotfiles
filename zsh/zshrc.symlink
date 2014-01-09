@@ -8,7 +8,7 @@ export PROJECTS=~/Development
 export CC=/usr/bin/clang
 
 # Drush
-export drush=$ZSH/bin/drush
+export PATH=$PATH:$ZSH/bin/drush
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
