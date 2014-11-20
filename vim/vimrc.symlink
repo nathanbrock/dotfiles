@@ -1,11 +1,94 @@
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
+if !has('gui_running')
+    " Compatibility for Terminal
+    let g:solarized_termtrans=1
 
-" VIM Theme - Solarized
-let g:solarized_termcolors=256
+    if (&t_Co >= 256 || $TERM == 'xterm-256color')
+        " Do nothing, it handles itself.
+    else
+        " Make Solarized use 16 colors for Terminal support
+        let g:solarized_termcolors=16
+    endif
+endif
+
+" More Common Settings.
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+syntax on
+
+set ttyfast
+set backspace=indent,eol,start
+set laststatus=2
+
+" Naviagations using keys up/down/left/right
+" Disabling default keys to learn the hjkl
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
+" Get Rid of stupid Goddamned help keys
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Settings for Searching and Moving
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Plugins
+Plugin 'gmarik/Vundle.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/ShowMarks'
+Plugin 'vim-scripts/SearchComplete'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'msanders/snipmate.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'simple-pairs'
+Plugin 'itchyny/lightline.vim'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+syntax on
+
+" Plugin Config
+
+" Emmet
+let g:user_emmet_leader_key='<C-E>'
+
+" Theme
+color solarized
 set background=dark
-colorscheme solarized
+
+"set guifont=Monaco:h14
+let g:NERDTreeWinPos = "right"
+set guioptions-=T " Removes top toolbar
+set guioptions-=r " Removes right hand scroll bar
+set go-=L " Removes left hand scroll bar
 
 " Always show line numbers, but only in current window.
 " set number
@@ -16,10 +99,31 @@ colorscheme solarized
 :au WinEnter * :set winfixheight
 :au WinEnter * :wincmd =""
 
-" Load NERDTree onload
+
+" ========== Plugin Settings =========="
+
+" Mapping to NERDTree
+nnoremap <C-n> :NERDTreeToggle<cr>
+let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$']
+
 autocmd vimenter * NERDTree
-" Close when noythin remains in the buffer but the tree!
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" Load Tagbar onload
-autocmd vimenter * TagbarToggle
+" Mini Buffer some settigns."
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplModSelTarget = 1
+
+" Tab color settings to make it more visible.
+hi MBEChanged ctermfg=white
+hi MBENormal ctermfg=white
+
+" Tagbar key bindings."
+nmap <leader>l <ESC>:TagbarToggle<cr>
+imap <leader>l <ESC>:TagbarToggle<cr>i
+
+" =========== END Plugin Settings =========="
+"
+autocmd Filetype gitcommit setlocal spell textwidth=72

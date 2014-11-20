@@ -13,6 +13,6 @@ then
 fi
 
 # Install homebrew packages
-brew install grc coreutils spark tmux
+brew install grc coreutils spark tmux python caskroom/cask/brew-cask
 
 exit 0
