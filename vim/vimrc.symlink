@@ -64,6 +64,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'simple-pairs'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kchmck/vim-coffee-script'
+=======
 
 call vundle#end()            " required
 filetype plugin indent on    " required
