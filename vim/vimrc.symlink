@@ -26,13 +26,6 @@ set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
 
-" Naviagations using keys up/down/left/right
-" Disabling default keys to learn the hjkl
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-
 " Get Rid of stupid Goddamned help keys
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
@@ -70,6 +63,7 @@ Plugin 'msanders/snipmate.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'simple-pairs'
 Plugin 'itchyny/lightline.vim'
+Plugin 'kchmck/vim-coffee-script'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
