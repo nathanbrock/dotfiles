@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+saltgen()
+{
+	local length="$1"
+	LC_CTYPE=C tr -c -d '0123456789abcdefghijklmnopqrstuvwxyz' </dev/urandom | dd bs=${length} count=1 2>/dev/null;echo
+}
+
+if { [ -z "$1" ] && [ -t 0 ] ; } || [ "$1" == '-h' ] || [ "$1" == '--help' ]
+then
+	echo "Usage: salt-gen STRING-LENGTH"
+	exit 0
+fi
+
+saltgen ${@:-`cat`}
