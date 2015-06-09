@@ -18,7 +18,7 @@ export PROJECTS=~/Development
 export CC=/usr/bin/clang
 
 # Android build tools
-export PATH=$PATH:~/Library/Android/sdk/platform-tools:~/Library/Android/sdk/tools
+# export PATH=$PATH:~/Library/Android/sdk/platform-tools:~/Library/Android/sdk/tools
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
@@ -48,10 +48,13 @@ if [[ "$TERM" != "screen" ]] &&
     # it, else create a new session
 
     WHOAMI="¯\_(ツ)_/¯"
-    if tmux has-session -t $WHOAMI 2>/dev/null; then
-        tmux -2 attach-session -t $WHOAMI
-    else
-        tmux -2 new-session -s $WHOAMI
+    #iif tmux has-session -t $WHOAMI 2>/dev/null; then
+    #    ms-session -t $WHOAMIux -2 attach-session -t $WHOAMI
+    #else
+
+    if [ -z "$TMUX" ]
+    then
+      tmux new-session -A -s $WHOAMI
     fi
 else
 
