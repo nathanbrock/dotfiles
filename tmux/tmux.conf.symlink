@@ -2,6 +2,8 @@ set -g prefix C-a
 bind C-a send-prefix
 unbind C-b
 
+set-option -g -q mouse on
+
 bind-key n      command-prompt 'rename-window %%'
 bind-key N      command-prompt 'rename-session %%'
 
