@@ -5,6 +5,9 @@ unbind C-b
 bind-key n      command-prompt 'rename-window %%'
 bind-key N      command-prompt 'rename-session %%'
 
+# Mouse
+set -g mouse on
+
 #Copy mode keybindings
 unbind p
 bind p paste-buffer
