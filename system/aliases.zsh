@@ -8,3 +8,10 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+. ./getSleepType.sh --source-only
+
+alias sleepy='getSleepType && pmset sleepnow'
+alias sleepsafe='sudo pmset -a destroyfvkeyonstandby 1 hibernatemode 25 && sleepy'
+alias sleepfast='sudo pmset -a hibernatemode 0 && sleepy'
+alias sleepdefault='sudo pmset -a hibernatemode 3 && sleepy'
